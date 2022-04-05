@@ -1,0 +1,16 @@
+.progress {
+
+    margin-left: 0;
+}
+
+p {
+    font-weight: bold;
+}
+
+.completed {
+    color: #198754;
+}
+
+.deleted {
+    color: #dc3545;
+}
