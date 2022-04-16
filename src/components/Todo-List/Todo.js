@@ -22,10 +22,10 @@ function Todo() {
 
   
   const handleOpenStatsModal = () => {
-      setStatsModalVisible(true);
+    setStatsModalVisible(true);
   }
   const handleCloseStatsModal = () => {
-      setStatsModalVisible(false);
+    setStatsModalVisible(false);
   }
 
   const handleOpen = () => {
@@ -38,12 +38,12 @@ function Todo() {
   }
 
   const cleanFields = () => {
-      setTask('');
-      setTaskDesc('');
+    setTask('');
+    setTaskDesc('');
   }
 
   const handleOpenBacklog = () => {
-      setBacklogOpen(true);
+    setBacklogOpen(true);
   }
 
   const handleCloseBacklog = () => {
@@ -52,28 +52,28 @@ function Todo() {
 
   const addTask = () => {
 
-        const newTask = {
-            id:Math.floor(Math.random() * 1000),
-            taskName: task,
-            taskDesc: taskDesc,
-            taskStatus: undefined,
-        }
+    const newTask = {
+      id:Math.floor(Math.random() * 1000),
+      taskName: task,
+      taskDesc: taskDesc,
+      taskStatus: undefined,
+    }
 
-        setTodoList([...todoList, newTask])
-        setTaskCount(taskCount+1)
-        handleClose();
-        cleanFields();
- }
+    setTodoList([...todoList, newTask])
+    setTaskCount(taskCount+1)
+    handleClose();
+    cleanFields();
+  }
 
- const addTaskToBacklog = (taskCompleted, option) => {
-        const newCompletedTask = {
-            id: taskCompleted[0].id,
-            taskName: taskCompleted[0].taskName,
-            taskDesc: taskCompleted[0].taskDesc,
-            taskStatus: option,
-        }
-        setTaskDone([...taskDone, newCompletedTask]) 
- }
+  const addTaskToBacklog = (taskCompleted, option) => {
+    const newCompletedTask = {
+      id: taskCompleted[0].id,
+      taskName: taskCompleted[0].taskName,
+      taskDesc: taskCompleted[0].taskDesc,
+      taskStatus: option,
+    }
+    setTaskDone([...taskDone, newCompletedTask]) 
+  }
 
  
 
@@ -84,63 +84,63 @@ function Todo() {
     <>
 
 
-    <Button 
-     onClick={handleOpen}
-     type="primary">Add New Task
-     </Button> 
+      <Button 
+        onClick={handleOpen}
+        type="primary">Add New Task
+      </Button> 
 
-    <Button 
-     type='link' 
-     onClick={handleOpenStatsModal}>
+      <Button 
+        type='link' 
+        onClick={handleOpenStatsModal}>
      Check out your tasks statistics!
-    </Button>
+      </Button>
 
-    <Button 
-     type='link' 
-     onClick={handleOpenBacklog}>
+      <Button 
+        type='link' 
+        onClick={handleOpenBacklog}>
      Backlog
-    </Button>
+      </Button>
 
     
 
-    {statsModalVisible && 
+      {statsModalVisible && 
     <TaskStats 
-     visible={statsModalVisible} 
-     onClose={handleCloseStatsModal}
-     taskCount={taskCount}
-     deletedCount={deletedCount}
-     completedCount={completedCount} />}
+      visible={statsModalVisible} 
+      onClose={handleCloseStatsModal}
+      taskCount={taskCount}
+      deletedCount={deletedCount}
+      completedCount={completedCount} />}
     
-    {isModalOpen &&
+      {isModalOpen &&
      <TaskModal 
-     visible={isModalOpen} 
-     setTask={setTask} 
-     task={task}
-     onClose={handleClose}
-     addTask={addTask} 
-     setTaskDesc={setTaskDesc}
-     taskDesc={taskDesc}
+       visible={isModalOpen} 
+       setTask={setTask} 
+       task={task}
+       onClose={handleClose}
+       addTask={addTask} 
+       setTaskDesc={setTaskDesc}
+       taskDesc={taskDesc}
      />}
     
 
 
-    <TaskList 
-     todoList={todoList} 
-     setTodoList={setTodoList}
-     setCompletedCount={setCompletedCount}
-     completedCount={completedCount}
-     setDeletedCount={setDeletedCount}
-     deletedCount={deletedCount}
-     addTaskToBacklog={addTaskToBacklog}
+      <TaskList 
+        todoList={todoList} 
+        setTodoList={setTodoList}
+        setCompletedCount={setCompletedCount}
+        completedCount={completedCount}
+        setDeletedCount={setDeletedCount}
+        deletedCount={deletedCount}
+        addTaskToBacklog={addTaskToBacklog}
       />
 
    
     
-    {backlogOpen && 
+      {backlogOpen && 
     <Backlog 
-    visible={backlogOpen} 
-    onClose={handleCloseBacklog}
-    taskDone={taskDone}
+      visible={backlogOpen} 
+      onClose={handleCloseBacklog}
+      taskDone={taskDone}
     /> }
     </>
 

@@ -6,18 +6,18 @@ import './TaskStats.css'
 
 const TaskStats = ({visible, onClose, taskCount, completedCount, deletedCount}) => {
 
-    return ( 
+  return ( 
     <Modal 
-        title={`Total of tasks: ${taskCount}`} 
-        visible={visible} 
-        onCancel={onClose} 
-        >
-        <ProgressBar variant="success" now={completedCount} />
-        <p className="completed">Completed tasks: {completedCount}</p>
-        <ProgressBar  variant="danger" now={deletedCount} />
-         <p className="deleted">Deleted taks: {deletedCount}</p>
+      title={`Total of tasks: ${taskCount}`} 
+      visible={visible} 
+      onCancel={onClose} 
+    >
+      <ProgressBar variant="success" now={completedCount} />
+      <p className="completed">Completed tasks: {completedCount}</p>
+      <ProgressBar  variant="danger" now={deletedCount} />
+      <p className="deleted">Deleted taks: {deletedCount}</p>
             
     </Modal>
-    )
+  )
 }
 export default TaskStats;
